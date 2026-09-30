@@ -1,5 +1,7 @@
 # Kate Moments
 
+[Open the public app on Railway](https://hackathon-production-19c8.up.railway.app)
+
 A KBC hackathon prototype: Kate proactively surfaces useful moments inside the familiar banking shell, then helps you take the next step in chat. All shell labels and copy are in English. Built with Next.js App Router, TypeScript, React, Tailwind CSS, and Lucide icons.
 
 ## Run
@@ -49,7 +51,7 @@ Payment requests and invitations are examples: nothing is sent. Money is never m
 
 ## Railway deployment
 
-Deploy the GitHub repository `r-heeren/Hackathon`, branch `main`. Railway reads `railway.json` and builds the Dockerfile. The build runs `npm ci --include=dev` and `npm run build`; the runtime contains only the static export and the Node server. It runs as a non-root user and listens on `0.0.0.0` using Railway's `PORT`. The `/health` endpoint returns HTTP 200 after the exported app is present. No secrets or database are required.
+Deploy the GitHub repository `r-heeren/Hackathon`, branch `main`. Railway automatically detects the Dockerfile. The build runs `npm ci --include=dev` and `npm run build`; the runtime contains only the static export and the Node server. It runs as a non-root user and listens on `0.0.0.0` using Railway's `PORT`. The `/health` endpoint returns HTTP 200 after the exported app is present. No secrets or database are required. Set the service's Healthcheck Path to `/health` in Railway. The deprecated Config as Code format is intentionally omitted; new Railway services can no longer opt into it.
 
 In the service's Settings → Networking, select **Generate Domain** to make the app publicly accessible over HTTPS. Repository/project visibility can stay private. Each visitor's demo learning stays in their own browser.
 
@@ -57,4 +59,4 @@ Run `npm run build` then `npm run test:production` to verify health, HTML, JavaS
 
 ## Submission status
 
-Source is linked to [r-heeren/Hackathon](https://github.com/r-heeren/Hackathon) on the `main` branch. Local and production previews are provided. Hosted deployment and an Aikido before/after scan still require working account/project access. No scan result is claimed.
+Source is linked to [r-heeren/Hackathon](https://github.com/r-heeren/Hackathon) on the `main` branch. The app is deployed publicly on Railway, with automatic deployment from `main` and a `/health` readiness check. An Aikido before/after scan still requires scan access. No scan result is claimed.

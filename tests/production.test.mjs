@@ -5,6 +5,7 @@ import { spawn } from 'node:child_process';
 let server;
 let origin;
 before(async () => {
+  if (process.env.PRODUCTION_URL) { origin = process.env.PRODUCTION_URL; return; }
   server = spawn(process.execPath, ['scripts/serve.mjs'], { env: { ...process.env, PORT: '0' }, stdio: ['ignore', 'pipe', 'pipe'] });
   origin = await new Promise((resolve, reject) => {
     const timeout = setTimeout(() => reject(new Error('Server did not start')), 10000);
