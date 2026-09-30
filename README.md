@@ -49,4 +49,4 @@ Payment requests and invitations are examples: nothing is sent. Money is never m
 
 ## Submission status
 
-Source and local preview are provided. A public GitHub repository, hosted deployment, and Aikido before/after scan must still be configured with the relevant account/project access. No scan result is claimed.
+Source is linked to [r-heeren/Hackathon](https://github.com/r-heeren/Hackathon) on the `main` branch. Local and production previews are provided. Hosted deployment and an Aikido before/after scan still require working account/project access. No scan result is claimed.
