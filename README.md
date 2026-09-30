@@ -47,6 +47,14 @@ Payment requests and invitations are examples: nothing is sent. Money is never m
 5. Switch to Homeowner: cash/home-buffer wording, Payday, Guardian.
 6. Switch to Steady earner. Correct Profile to Travel & experiences: the Idle cash card is removed.
 
+## Railway deployment
+
+Deploy the GitHub repository `r-heeren/Hackathon`, branch `main`. Railway reads `railway.json` and builds the Dockerfile. The build runs `npm ci --include=dev` and `npm run build`; the runtime contains only the static export and the Node server. It runs as a non-root user and listens on `0.0.0.0` using Railway's `PORT`. The `/health` endpoint returns HTTP 200 after the exported app is present. No secrets or database are required.
+
+In the service's Settings → Networking, select **Generate Domain** to make the app publicly accessible over HTTPS. Repository/project visibility can stay private. Each visitor's demo learning stays in their own browser.
+
+Run `npm run build` then `npm run test:production` to verify health, HTML, JavaScript, CSS, and HTTP method handling. For a Docker check: `docker build -t kate-moments .` then `docker run --rm -p 8080:8080 -e PORT=8080 kate-moments`.
+
 ## Submission status
 
 Source is linked to [r-heeren/Hackathon](https://github.com/r-heeren/Hackathon) on the `main` branch. Local and production previews are provided. Hosted deployment and an Aikido before/after scan still require working account/project access. No scan result is claimed.

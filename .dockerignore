@@ -1,0 +1,11 @@
+node_modules
+.next
+.npm-cache
+out
+.git
+.env*
+*.tsbuildinfo
+test-results
+tests
+kate-preview.png
+railway-preview.png
